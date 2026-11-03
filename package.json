@@ -1,0 +1,51 @@
+{
+  "name": "dsh-remote-control",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "description": "手机扫码接管 DeepSeek Harness：桌面遮罩、解锁码、一键锁屏、文件浏览；支持局域网与公网远程（内置隧道）。",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**",
+    "cordis.patch.yml",
+    "bin",
+    "icon.png",
+    "README.md",
+    "docs/*.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./icon": "./icon.png"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4",
+    "qrcode-generator": "^2.0.4"
+  },
+  "displayName": "远程控制",
+  "author": "ZHIRAI <xtang3125@gmail.com> (https://zhirai.cloud)",
+  "homepage": "https://github.com/zhirai-tech/dsh-remote-control#readme",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  }
+}
